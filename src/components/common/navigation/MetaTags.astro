@@ -1,0 +1,66 @@
+---
+import { AstroSeo } from '@astrolib/seo';
+
+import { SITE } from '../../../config.mjs';
+import type { MetaSEO } from '../../../types';
+
+export interface Props extends MetaSEO {
+  dontUseTitleTemplate?: boolean;
+}
+
+const {
+  title = SITE.name,
+  description = '',
+
+  canonical = String(Astro.url.pathname),
+  noindex = false,
+  nofollow = false,
+
+  ogTitle = title,
+  ogType = 'website',
+
+  dontUseTitleTemplate = false,
+} = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<AstroSeo
+  title={title}
+  titleTemplate={dontUseTitleTemplate ? '%s' : `%s — ${SITE.name}`}
+  description={description}
+  canonical={String(canonical)}
+  noindex={noindex}
+  nofollow={nofollow}
+  openGraph={{
+    url: String(canonical),
+    title: ogTitle,
+    description: description,
+    type: ogType,
+    // images: image
+    //   ? [
+    //       {
+    //         url: image.toString(),
+    //         alt: ogTitle,
+    //       },
+    //     ]
+    //   : undefined,
+    // site_name: 'SiteName',
+  }}
+  twitter={{
+    // handle: '@handle',
+    // site: '@site',
+    // cardType: image ? 'summary_large_image' : undefined,
+  }}
+/>
+
+
+<!-- Google Site Verification -->
+<!-- {SITE.googleSiteVerificationId && <meta name="google-site-verification" content={SITE.googleSiteVerificationId} />} -->
+
+<!-- {SITE.splitbeeAnalytics?.enabled && <SplitbeeAnalytics {...SITE.splitbeeAnalytics} />} -->
+<!-- 
+<link rel="shortcut icon" href={getAsset('/favicon.ico')} />
+<link rel="icon" type="image/svg+xml" href={getAsset('/favicon.svg')} />
+<link rel="mask-icon" href={getAsset('/favicon.svg')} color="#8D46E7" /> -->

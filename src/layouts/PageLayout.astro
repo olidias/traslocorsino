@@ -1,0 +1,25 @@
+---
+import NavHeader from '../components/common/navigation/NavHeader.astro';
+import type { MetaSEO } from '../types';
+import Layout from './BaseLayout.astro';
+
+
+export interface Props {
+  meta?: MetaSEO;
+  showNavigation?: boolean;
+}
+
+const { meta, showNavigation } = Astro.props;
+---
+
+<Layout {meta}>
+  <slot name="header">
+    <NavHeader isSticky showToggleTheme showNavigation={showNavigation ?? true} />
+  </slot>
+  <main>
+    <slot />
+  </main>
+  <slot name="footer">
+    <!-- <Footer  /> -->
+  </slot>
+</Layout>
