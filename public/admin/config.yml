@@ -20,7 +20,7 @@ public_folder: "src/assets/images" # The src attribute for uploaded media
 collections: 
   - name: "teaser"
     label: "Teaser"
-    folder: "src/content/main"
+    folder: "src/content/teaser"
     i18n: true
     create: false
     slug: "teaser"
@@ -31,7 +31,7 @@ collections:
 
   - name: "features"
     label: "Features"
-    folder: "src/content/main"
+    folder: "src/content/feature"
     slug: "feature"
     i18n: true
     create: true
