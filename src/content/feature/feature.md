@@ -1,10 +1,10 @@
 ---
 de:
-  feature-title: Faire Preise
-  feature-description: Schon ab 120.-/h hast du deinen Lieferwagen!
-  feature-sort-order: 1
+  title: Faire Preise
+  description: Schon ab 120.-/h hast du deinen Lieferwagen!
+  sortOrder: 1
 en:
-  feature-sort-order: 1
-  feature-title: Fair Pricing
-  feature-description: You're in the game with only 120.-/h!
+  sortOrder: 1
+  title: Fair Pricing
+  description: You're in the game with only 120.-/h!
 ---

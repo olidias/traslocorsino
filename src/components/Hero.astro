@@ -6,12 +6,12 @@ const lang = getLangFromUrl(Astro.url);
 const teaser = teasers.frontmatter[lang];
 ---
 
-<div class="flex flex-col w-2/3 mx-auto mt-10">
+<div class="flex flex-col w-2/3 mx-auto mt-10  items-center">
     <img
         class=""
         src="/traslocorsino.svg"
         alt="traslocorsino logo"
     />
     <p>{teaser.teaser}</p>
-    <a href=`${lang}/book` class="">{teaser.ctaText}</a>
+    <a href=`${lang}/book` class="bg-white px-7 py-2 border-2 border-primary-darker rounded-sm mt-3 ">{teaser.ctaText}</a>
 </div>

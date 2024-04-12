@@ -36,9 +36,9 @@ collections:
     i18n: true
     create: true
     fields:
-      - { label: "Feature Title", name: "feature-title", widget: "string", i18n: true }
-      - { label: "Feature Description", name: "feature-description", widget: "string", i18n: true }
-      - { label: "Feature Sortierung", name: "feature-sort-order", widget: "number", i18n: duplicate }
+      - { label: "Feature Title", name: "title", widget: "string", i18n: true }
+      - { label: "Feature Description", name: "description", widget: "string", i18n: true }
+      - { label: "Feature Sortierung", name: "sortOrder", widget: "number", i18n: duplicate }
 
   # - name: "process"
   #   label: "Ablauf"
