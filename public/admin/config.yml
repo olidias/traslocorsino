@@ -1,0 +1,69 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: 
+  url: http://localhost:8081/api/v1
+
+i18n: 
+  structure: single_file
+  locales: [de, en]
+  default_locale: de
+
+# Optional, defaults to the first item in locales.
+# The locale to be used for fields validation and as a baseline for the entry.
+default_locale: de
+
+media_folder: "src/assets/images" # Location where files will be stored in the repo
+public_folder: "src/assets/images" # The src attribute for uploaded media
+
+collections: 
+  - name: "teaser"
+    label: "Teaser"
+    folder: "src/content/main"
+    i18n: true
+    create: false
+    slug: "teaser"
+    fields: 
+      - { label: "Teaser Text", name: "teaser", widget: "string", i18n: true }
+      - { label: "Logo", name: "logo", widget: "image", i18n: duplicate }
+      - { label: "Call to Action Text", name: "ctaText", widget: "string", i18n: true }
+
+  - name: "features"
+    label: "Features"
+    folder: "src/content/main"
+    slug: "feature"
+    i18n: true
+    create: true
+    fields:
+      - { label: "Feature Title", name: "feature-title", widget: "string", i18n: true }
+      - { label: "Feature Description", name: "feature-description", widget: "string", i18n: true }
+      - { label: "Feature Sortierung", name: "feature-sort-order", widget: "number", i18n: duplicate }
+
+  # - name: "process"
+  #   label: "Ablauf"
+  #   folder: "data"
+  #   create: true
+  #   i18n: true
+  #   fields: 
+  #     - { label: "Ablauf Title", name: "process-title", widget: "string", i18n: true }
+  #     - { label: "Ablauf 1 - Title", name: "process-1-title", widget: "string", i18n: true }
+  #     - { label: "Ablauf 1 - Beschreibung", name: "process-1-description", widget: "string", i18n: true }
+  #     - { label: "Ablauf 2 - Title", name: "process-2-title", widget: "string", i18n: true }
+  #     - { label: "Ablauf 2 - Beschreibung", name: "process-2-description", widget: "string", i18n: true }
+  #     - { label: "Ablauf 3 - Title", name: "process-3-title", widget: "string", i18n: true }
+  #     - { label: "Ablauf 3 - Beschreibung", name: "process-3-description", widget: "string", i18n: true }
+  #     - { label: "Ablauf 4 - Title", name: "process-4-title", widget: "string", i18n: true }
+  #     - { label: "Ablauf 4 - Beschreibung", name: "process-4-description", widget: "string", i18n: true }
+
+  # - name: "fleet"
+  #   label: "Flotte"
+  #   folder: "data"
+  #   create: true
+  #   i18n: true
+  #   fields: 
+  #     - { label: "Transporter Bild", name: "transporter-image", widget: "image" }
+  #     - { label: "Transporter Title", name: "transporter-title", widget: "string" }
+  #     - { label: "Transporter Daten", name: "transporter-data", widget: "markdown", i18n: true }
+  #     - { label: "Transporter Preis", name: "transporter-price", widget: "string" }
+  #     - { label: "Transporter Buchen Button", name: "transporter-cta", widget: "string", i18n: true }

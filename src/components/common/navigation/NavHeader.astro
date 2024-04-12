@@ -29,27 +29,27 @@ const {
   showNavigation
 } = Astro.props;
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 const links = [
     {
       textKey: 'navigation.about',
-      href: '#about',
+      href: `/${lang}#about`,
     },
     {
       textKey: 'navigation.fleet',
-      href: '#fleet'
+      href: `/${lang}#fleet`
     },
     {
       textKey: 'navigation.book',
-      href: '#book'
+      href: `/${lang}#book`
     },
     {
       textKey: 'navigation.contact',
-      href: '#contact'
+      href: `/${lang}#contact`
     },
   ];
 ;
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 ---
 
 <header

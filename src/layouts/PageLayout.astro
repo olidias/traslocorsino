@@ -14,7 +14,7 @@ const { meta, showNavigation } = Astro.props;
 
 <Layout {meta}>
   <slot name="header">
-    <NavHeader isSticky showToggleTheme showNavigation={showNavigation ?? true} />
+    <NavHeader isSticky showNavigation={showNavigation ?? true} />
   </slot>
   <main>
     <slot />
