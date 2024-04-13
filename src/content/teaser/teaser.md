@@ -6,5 +6,5 @@ de:
 en:
   logo: src/assets/images/group.png
   teaser: Your uncomplicated partner for stress-free van rentals
-  ctaText: Book van now
+  ctaText: Book now
 ---
