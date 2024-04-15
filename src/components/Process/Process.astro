@@ -1,0 +1,21 @@
+---
+import { getLangFromUrl } from "../../i18n/utils";
+
+const processes = await Astro.glob("../../content/process/process.md");
+
+const lang = getLangFromUrl(Astro.url);
+const filteredProcesses = processes[0]?.frontmatter[lang];
+---
+
+<div class="flex mx-auto sm:w-2/3 w-full flex-col mt-20">
+    <h2 class="text-2xl font-bold flex mx-auto mb-10">{filteredProcesses.title}</h2>
+    {
+        filteredProcesses &&
+            filteredProcesses.processes?.map((f: any) => (
+                <div class="my-5">
+                    <p class="uppercase font-bold">{f.title}</p>
+                    <p>{f.description}</p>
+                </div>
+            ))
+    }
+</div>

@@ -23,8 +23,9 @@ collections:
     folder: "src/content/teaser"
     i18n: true
     create: false
+    max: 1
     slug: "teaser"
-    fields: 
+    fields:
       - { label: "Teaser Text", name: "teaser", widget: "string", i18n: true }
       - { label: "Logo", name: "logo", widget: "image", i18n: duplicate }
       - { label: "Call to Action Text", name: "ctaText", widget: "string", i18n: true }
@@ -39,25 +40,26 @@ collections:
       - { label: "Title", name: "title", widget: "string", i18n: true }
       - { label: "Description", name: "description", widget: "string", i18n: true }
       - { label: "Sortierung", name: "sortOrder", widget: "number", i18n: duplicate }
-      - { label: "Icon", name: "icon", widget: "string", i18n: duplicate }
+      - { label: "Icon", name: "icon", widget: "text", i18n: duplicate }
 
-  # - name: "process"
-  #   label: "Ablauf"
-  #   folder: "data"
-  #   create: true
-  #   i18n: true
-  #   fields: 
-  #     - { label: "Ablauf Title", name: "process-title", widget: "string", i18n: true }
-  #     - { label: "Ablauf 1 - Title", name: "process-1-title", widget: "string", i18n: true }
-  #     - { label: "Ablauf 1 - Beschreibung", name: "process-1-description", widget: "string", i18n: true }
-  #     - { label: "Ablauf 2 - Title", name: "process-2-title", widget: "string", i18n: true }
-  #     - { label: "Ablauf 2 - Beschreibung", name: "process-2-description", widget: "string", i18n: true }
-  #     - { label: "Ablauf 3 - Title", name: "process-3-title", widget: "string", i18n: true }
-  #     - { label: "Ablauf 3 - Beschreibung", name: "process-3-description", widget: "string", i18n: true }
-  #     - { label: "Ablauf 4 - Title", name: "process-4-title", widget: "string", i18n: true }
-  #     - { label: "Ablauf 4 - Beschreibung", name: "process-4-description", widget: "string", i18n: true }
+  - name: "process"
+    label: "Ablauf"
+    folder: "src/content/process"
+    widget: "list"
+    create: false
+    i18n: true
+    fields: 
+      - { label: "Ablauf Title", name: "title", widget: "string", i18n: true }
+      - label: "Prozesse"
+        name: "processes"
+        widget: "list"
+        i18n: true
+        fields:
+          - { label: "Prozess Item - Titel", name: "title", widget: "string", i18n: true }
+          - { label: "Prozess Item - Beschreibung", name: "description", widget: "string", i18n: true }
+          - { label: "Prozess Item - Icon", name: "icon", widget: string, i18n: duplicate }
 
-  # - name: "fleet"
+  # # - name: "fleet"
   #   label: "Flotte"
   #   folder: "data"
   #   create: true
