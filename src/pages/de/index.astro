@@ -1,6 +1,7 @@
 ---
 const url = Astro.url;
 const urlParts = url.pathname.split('/')
+// @ts-ignore
 const newUrl = `/${urlParts.filter(u => u!=="de").join('/')}`;
 return Astro.redirect(newUrl);
 ---

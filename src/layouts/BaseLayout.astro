@@ -5,7 +5,7 @@ import { SITE } from '../config.mjs';
 import type { MetaSEO } from '../types';
 
 export interface Props {
-  meta?: MetaSEO;
+  meta?: MetaSEO | undefined;
 }
 
 const { meta = {} } = Astro.props;
