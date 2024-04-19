@@ -1,0 +1,55 @@
+---
+import { getLangFromUrl } from "../../i18n/utils";
+
+const fleet = await Astro.glob("../../content/fleet/*.md");
+const allVans = fleet.map((f) => f.frontmatter);
+const lang = getLangFromUrl(Astro.url);
+
+const translatedFleet = allVans[0]![lang];
+translatedFleet.vans = translatedFleet.vans.sort(
+    (a: any, b: any) => a.sortOrder - b.sortOrder,
+);
+translatedFleet.vans = translatedFleet.vans.map(v => {
+    return {
+        ...v,
+        separatedData: v.data.split(/\r?\n|\r|\n/g)
+    }
+});
+---
+
+<div class="flex mx-auto sm:w-2/3 w-full flex-col mt-20 mb-10">
+    <h2 class="text-2xl font-bold flex mx-auto mb-10">
+        {translatedFleet.title}
+    </h2>
+    <div>
+        {
+            translatedFleet &&
+                translatedFleet.vans.map((v: any) => {
+                    return (
+                        <div class="flex bg-primary-light md:flex-row flex-col">
+                            <img
+                                src={v.image}
+                                alt={v}
+                                class={"h-full max-h-[400px] "}
+                            />
+                            <div class="flex flex-col p-6 w-full">
+                                <h3 class="capitalize font-bold mb-2">{v.title}</h3>
+                                {v.separatedData.map((d: string) => {
+                                    return (<p>{d}</p>)
+                                })}
+                                <div class="flex flex-row items-center mt-auto w-full">
+                                    <span class="font-bold flex">{v.price}</span>
+                                    <a
+                                        href={`${lang}/book`}
+                                        class="bg-white px-7 py-2 border-2 border-primary-darker justify-end rounded-sm ml-auto flex"
+                                    >
+                                        {v.cta}
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    );
+                })
+        }
+    </div>
+</div>

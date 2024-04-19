@@ -1,4 +1,5 @@
 ---
+import Footer from '../components/common/Footer.astro';
 import NavHeader from '../components/common/navigation/NavHeader.astro';
 import type { MetaSEO } from '../types';
 import Layout from './BaseLayout.astro';
@@ -20,6 +21,6 @@ const { meta, showNavigation } = Astro.props;
     <slot />
   </main>
   <slot name="footer">
-    <!-- <Footer  /> -->
+    <Footer  />
   </slot>
 </Layout>

@@ -22,6 +22,10 @@ export const ui = {
     'navigation.book': 'Book Van',
     'navigation.contact': 'Contact',
 
+    'footer.name': 'Alessandro Orsino',
+    'footer.address': 'Nordstrasse 8',
+    'footer.town': '8620 Wetzikon'
+
   },
   de: {
     'navigation.about': 'Über Uns',
@@ -29,6 +33,9 @@ export const ui = {
     'navigation.book': 'Wagen buchen',
     'navigation.contact': 'Kontakt',
 
+    'footer.name': 'Alessandro Orsino',
+    'footer.address': 'Nordstrasse 8',
+    'footer.town': '8620 Wetzikon'
   }
 }
 export type Language = keyof typeof ui;

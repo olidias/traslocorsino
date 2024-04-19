@@ -59,14 +59,22 @@ collections:
           - { label: "Prozess Item - Beschreibung", name: "description", widget: "string", i18n: true }
           - { label: "Prozess Item - Icon", name: "icon", widget: string, i18n: duplicate }
 
-  # # - name: "fleet"
-  #   label: "Flotte"
-  #   folder: "data"
-  #   create: true
-  #   i18n: true
-  #   fields: 
-  #     - { label: "Transporter Bild", name: "transporter-image", widget: "image" }
-  #     - { label: "Transporter Title", name: "transporter-title", widget: "string" }
-  #     - { label: "Transporter Daten", name: "transporter-data", widget: "markdown", i18n: true }
-  #     - { label: "Transporter Preis", name: "transporter-price", widget: "string" }
-  #     - { label: "Transporter Buchen Button", name: "transporter-cta", widget: "string", i18n: true }
+  - name: "fleet"
+    label: "Flotte"
+    folder: "src/content/fleet"
+    create: true
+    widget: list
+    i18n: true
+    fields: 
+      - { label: "Flotte Title", name: "title", widget: "string", i18n: true }
+      - label: "Wagen"
+        name: "vans"
+        widget: list
+        i18n: true
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: duplicate }
+          - { label: "Bild", name: "image", widget: "image", i18n: duplicate }
+          - { label: "Daten", name: "data", widget: "markdown", i18n: true }
+          - { label: "Preis", name: "price", widget: "string", i18n: true }
+          - { label: "Sortierung", name: "sortOrder", widget: "number" }
+          - { label: "Buchen Button", name: "cta", widget: "string", i18n: true }
