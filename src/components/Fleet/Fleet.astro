@@ -9,7 +9,7 @@ const translatedFleet = allVans[0]![lang];
 translatedFleet.vans = translatedFleet.vans.sort(
     (a: any, b: any) => a.sortOrder - b.sortOrder,
 );
-translatedFleet.vans = translatedFleet.vans.map(v => {
+translatedFleet.vans = translatedFleet.vans.map((v: any) => {
     return {
         ...v,
         separatedData: v.data.split(/\r?\n|\r|\n/g)
