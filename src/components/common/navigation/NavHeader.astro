@@ -1,10 +1,10 @@
 ---
 import LanguagePicker from './LanguagePicker';
-import type { ui } from '../../../i18n/ui';
+import type { TranslationKey, ui } from '../../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
 
 interface Link {
-  textKey?: Partial<typeof ui>;
+  key?: Partial<typeof ui>;
   href?: string;
   ariaLabel?: string;
   icon?: string;
@@ -31,21 +31,21 @@ const {
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const links = [
+const links: {key: TranslationKey, href: string }[] = [
     {
-      textKey: 'navigation.about',
+      key: 'navigation.about',
       href: `/${lang}#about`,
     },
     {
-      textKey: 'navigation.fleet',
+      key: 'navigation.fleet',
       href: `/${lang}#fleet`
     },
     {
-      textKey: 'navigation.book',
+      key: 'navigation.book',
       href: `/${lang}/book`
     },
     {
-      textKey: 'navigation.contact',
+      key: 'navigation.contact',
       href: `/${lang}#contact`
     },
   ];
@@ -75,13 +75,13 @@ const links = [
     >
       <ul class="flex flex-col pt-8 md:pt-0 md:flex-row md:self-center w-full md:w-auto md:text-base">
         {
-          showNavigation && links.map(({ textKey, href }) => (
+          showNavigation && links.map(({ key, href }) => (
             <li>
                 <a data-aw-toggle-menu
                   class=" font-semibold text-white hover:text-slate-600 text-lg px-4 py-3 flex items-center transition duration-150 ease-in-out"
                   href={href}
                 >
-                  {t(textKey)}
+                  {t(key)}
                 </a>
               
             </li>

@@ -1,28 +1,28 @@
 import { Icon } from "@iconify/react";
 import { useState, useEffect, useRef } from "react";
-import { languages } from "../../../i18n/ui";
+import { defaultLang, languages } from "../../../i18n/ui";
 import { getLangFromUrl } from "../../../i18n/utils";
 
-export default function LanguagePicker({ url }) {
+export default function LanguagePicker({ url }: {url: URL}) {
   const [menuOpen, setMenuOpen] = useState(false);
   function toggleMenu() {
     setIsComponentVisible(true);
     setMenuOpen(!menuOpen);
   }
-  const lang = languages.find(l => l.key === getLangFromUrl(url));
+  const lang = languages.find(l => l.key === getLangFromUrl(url)) ?? defaultLang;
 
   const [isComponentVisible, setIsComponentVisible] = useState(true);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
-  const handleHideDropdown = (event) => {
+  const handleHideDropdown = (event: KeyboardEvent) => {
     if (event.key === "Escape") {
       setIsComponentVisible(false);
       setMenuOpen(false);
     }
   };
 
-  const handleClickOutside = (event) => {
-    if (ref.current && !ref.current.contains(event.target)) {
+  const handleClickOutside = (event: MouseEvent) => {
+    if (ref.current && event.target instanceof Element && !ref.current.contains(event.target)) {
       setIsComponentVisible(false);
       setMenuOpen(false);
     }
@@ -48,7 +48,7 @@ export default function LanguagePicker({ url }) {
           aria-haspopup="true"
           onClick={toggleMenu}
         >
-          <Icon icon={lang?.icon} className="h-5 w-5 " />
+          <Icon icon={lang.icon} className="h-5 w-5 " />
         </button>
       </div>
       {isComponentVisible && (
@@ -60,7 +60,7 @@ export default function LanguagePicker({ url }) {
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="menu-button"
-          tabIndex="-1"
+          tabIndex={-1}
         >
           <div className="py-1 flex-row" role="none">
             {languages.map((language, i) => (
@@ -69,7 +69,7 @@ export default function LanguagePicker({ url }) {
                 href={`/${language.key}`}
                 className="text-gray-700 px-4 py-2 text-sm flex justify-items-start hover:bg-gray-100"
                 role="menuitem"
-                tabIndex="-1"
+                tabIndex={-1}
                 id="menu-item-0"
               >
                 <div className="flex-col flex w-5 h-5 items-center justify-center">
