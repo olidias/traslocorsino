@@ -3,7 +3,7 @@ de:
   title: Unsere Flotte
   vans:
     - title: Toyota Hiace
-      image: src/assets/images/toyota-hiace.jpg
+      image: /src/assets/images/toyota-hiace.jpg
       data: |-
         Baujahr: 2020
         Länge: 4.5m
@@ -12,13 +12,13 @@ de:
 
         Automatikgetriebe
       price: 120.-/h
-      cta: Toyota Hiace Buchen
+      cta: Buchen
       sortOrder: 1
 en:
   title: Our Fleet
   vans:
     - title: Toyota Hiace
-      image: src/assets/images/toyota-hiace.jpg
+      image: /src/assets/images/toyota-hiace.jpg
       data: |-
         2020 model
         Length: 4.5m
@@ -28,5 +28,5 @@ en:
         Automatic Transmission
       price: 120.-/h
       sortOrder: 1
-      cta: Book Toyota Hiace
+      cta: Book
 ---

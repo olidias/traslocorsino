@@ -1,0 +1,16 @@
+---
+import Layout from '../../layouts/PageLayout.astro';
+import { languages } from '../../i18n/ui';
+import Hero from '../../components/Hero.astro';
+import About from '../../components/About/About.astro';
+
+export function getStaticPaths () {
+    return languages.map(l => { return { params: { lang: l.key }}});
+}
+
+
+---
+<Layout>
+    <Hero />
+    <About />
+</Layout>

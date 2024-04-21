@@ -78,3 +78,15 @@ collections:
           - { label: "Preis", name: "price", widget: "string", i18n: true }
           - { label: "Sortierung", name: "sortOrder", widget: "number" }
           - { label: "Buchen Button", name: "cta", widget: "string", i18n: true }
+
+  - name: "about"
+    label: "Über uns"
+    folder: "src/content/about"
+    create: true
+    i18n: true
+    fields: 
+      - { label: "Titel", name: "title", widget: string, i18n: true }
+      - { label: "Name", name: "name", widget: string, i18n: duplicate }
+      - { label: "Rolle", name: "role", widget: string, i18n: true }
+      - { label: "Über uns Text", name: "aboutText", widget: markdown, i18n: true }
+      - { label: "Bild", name: "image", widget: image, i18n: duplicate }

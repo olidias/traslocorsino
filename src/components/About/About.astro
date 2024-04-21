@@ -1,0 +1,23 @@
+---
+import { getLangFromUrl } from "../../i18n/utils";
+
+
+const aboutRaw = await Astro.glob('../../content/about/about.md');
+
+const lang = getLangFromUrl(Astro.url);
+
+const about = aboutRaw.map(f => f.frontmatter[lang])[0];
+---
+<div class="mx-auto sm:w-2/3 w-full sm:flex-row mt-20">
+    <h2 class="text-2xl font-bold flex mx-auto mb-10  justify-center">
+        {about.title}
+    </h2>
+    <div class="flex w-full bg-primary-light p-8 sm:flex-row flex-col mb-16">
+        <img src={about.image} alt={about.name} height="200" width="200" class="rounded-full min-w-[200px] min-h-[200px] max-h-[200px] max-w-[200px] h-[200px] w-[200px] items-center self-center sm:mb-0 mb-10 sm:mr-5"/>
+        <div class="flex flex-col">
+            <p class="font-bold uppercase">{about.name}</p>
+            <p class="text-slate-600 font-light mb-3">{about.role}</p>
+            <p class="hyphens-auto text-justify">{about.aboutText}</p>
+        </div>
+    </div>
+</div>
