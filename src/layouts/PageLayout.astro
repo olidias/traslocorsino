@@ -17,7 +17,7 @@ const { meta, showNavigation } = Astro.props;
   <slot name="header">
     <NavHeader isSticky showNavigation={showNavigation ?? true} />
   </slot>
-  <main>
+  <main class="min-h-[calc(100vh-70px-230px)]">
     <slot />
   </main>
   <slot name="footer">
