@@ -48,6 +48,7 @@ export default function LanguagePicker({ url }: {url: URL}) {
           className="text-muted mr-2 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
           aria-expanded="true"
           aria-haspopup="true"
+          aria-label="language-picker"
           onClick={toggleMenu}
         >
           <Icon icon={lang.icon} className="h-5 w-5 " />
@@ -58,10 +59,8 @@ export default function LanguagePicker({ url }: {url: URL}) {
           className={`${
             menuOpen ? "" : "hidden"
           } absolute right-0 z-10 mt-2 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
-          id="languageDropdown"
           role="menu"
           aria-orientation="vertical"
-          aria-label="language-picker"
           tabIndex={-1}
         >
           <div className="py-1 flex-row" role="none">
