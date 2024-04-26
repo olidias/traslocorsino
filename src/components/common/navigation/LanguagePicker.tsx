@@ -2,6 +2,7 @@ import { Icon } from "@iconify/react";
 import { useState, useEffect, useRef } from "react";
 import { defaultLang, languages } from "../../../i18n/ui";
 import { getLangFromUrl } from "../../../i18n/utils";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 export default function LanguagePicker({ url }: {url: URL}) {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,6 +11,7 @@ export default function LanguagePicker({ url }: {url: URL}) {
     setMenuOpen(!menuOpen);
   }
   const lang = languages.find(l => l.key === getLangFromUrl(url)) ?? defaultLang;
+  const currentPath = url.pathname.split('/').findLast(u => u && !languages.some(l => l.key === u)) ?? '';
 
   const [isComponentVisible, setIsComponentVisible] = useState(true);
   const ref = useRef<HTMLDivElement>(null);
@@ -66,7 +68,7 @@ export default function LanguagePicker({ url }: {url: URL}) {
             {languages.map((language, i) => (
               <a
                 key={i}
-                href={`/${language.key}`}
+                href={`${getRelativeLocaleUrl(language.key, currentPath)}`}
                 className="text-gray-700 px-4 py-2 text-sm flex justify-items-start hover:bg-gray-100"
                 role="menuitem"
                 tabIndex={-1}

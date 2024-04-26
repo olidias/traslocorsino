@@ -1,7 +1,8 @@
 ---
 import LanguagePicker from './LanguagePicker';
-import type { TranslationKey, ui } from '../../../i18n/ui';
+import { defaultLang, type TranslationKey, type ui } from '../../../i18n/ui';
 import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 
 interface Link {
   key?: Partial<typeof ui>;
@@ -34,19 +35,19 @@ const t = useTranslations(lang);
 const links: {key: TranslationKey, href: string }[] = [
     {
       key: 'navigation.about',
-      href: `/${lang}/about`,
+      href: getRelativeLocaleUrl(lang, 'about'),
     },
     {
       key: 'navigation.fleet',
-      href: `/${lang}#fleet`
+      href: `/${lang === defaultLang.key ? '' : lang}#fleet`
     },
     {
       key: 'navigation.book',
-      href: `/${lang}/book`
+      href: getRelativeLocaleUrl(lang, 'book')
     },
     {
       key: 'navigation.contact',
-      href: `/${lang}#contact`
+      href: `/${lang === defaultLang.key ? '' : lang}#contact`
     },
   ];
 ;
