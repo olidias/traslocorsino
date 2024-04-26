@@ -1,0 +1,26 @@
+---
+import Footer from '../components/common/Footer.astro';
+import NavHeader from '../components/common/navigation/NavHeader.astro';
+import type { MetaSEO } from '../types';
+import Layout from './BaseLayout.astro';
+
+
+export interface Props {
+  meta?: MetaSEO;
+  showNavigation?: boolean;
+}
+
+const { meta, showNavigation } = Astro.props;
+---
+
+<Layout {meta}>
+  <slot name="header">
+    <NavHeader isSticky showNavigation={showNavigation ?? true} />
+  </slot>
+  <main class="min-h-[calc(100vh-70px-230px)]">
+    <slot />
+  </main>
+  <slot name="footer">
+    <Footer  />
+  </slot>
+</Layout>

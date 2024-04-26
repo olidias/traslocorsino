@@ -1,0 +1,92 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: 
+  url: http://localhost:8081/api/v1
+
+i18n: 
+  structure: single_file
+  locales: [de, en]
+  default_locale: de
+
+# Optional, defaults to the first item in locales.
+# The locale to be used for fields validation and as a baseline for the entry.
+default_locale: de
+
+media_folder: "src/assets/images" # Location where files will be stored in the repo
+public_folder: "src/assets/images" # The src attribute for uploaded media
+
+collections: 
+  - name: "teaser"
+    label: "Teaser"
+    folder: "src/content/teaser"
+    i18n: true
+    create: false
+    max: 1
+    slug: "teaser"
+    fields:
+      - { label: "Teaser Text", name: "teaser", widget: "string", i18n: true }
+      - { label: "Logo", name: "logo", widget: "image", i18n: duplicate }
+      - { label: "Call to Action Text", name: "ctaText", widget: "string", i18n: true }
+
+  - name: "features"
+    label: "Features"
+    folder: "src/content/feature"
+    slug: "feature"
+    i18n: true
+    create: true
+    fields:
+      - { label: "Title", name: "title", widget: "string", i18n: true }
+      - { label: "Description", name: "description", widget: "string", i18n: true }
+      - { label: "Sortierung", name: "sortOrder", widget: "number", i18n: duplicate }
+      - { label: "Icon", name: "icon", widget: "text", i18n: duplicate }
+
+  - name: "process"
+    label: "Ablauf"
+    folder: "src/content/process"
+    widget: "list"
+    create: false
+    i18n: true
+    fields: 
+      - { label: "Ablauf Title", name: "title", widget: "string", i18n: true }
+      - label: "Prozesse"
+        name: "processes"
+        widget: "list"
+        i18n: true
+        fields:
+          - { label: "Prozess Item - Titel", name: "title", widget: "string", i18n: true }
+          - { label: "Prozess Item - Beschreibung", name: "description", widget: "string", i18n: true }
+          - { label: "Prozess Item - Icon", name: "icon", widget: string, i18n: duplicate }
+
+  - name: "fleet"
+    label: "Flotte"
+    folder: "src/content/fleet"
+    create: true
+    widget: list
+    i18n: true
+    fields: 
+      - { label: "Flotte Title", name: "title", widget: "string", i18n: true }
+      - label: "Wagen"
+        name: "vans"
+        widget: list
+        i18n: true
+        fields:
+          - { label: "Title", name: "title", widget: "string", i18n: duplicate }
+          - { label: "Bild", name: "image", widget: "image", i18n: duplicate }
+          - { label: "Daten", name: "data", widget: "markdown", i18n: true }
+          - { label: "Preis", name: "price", widget: "string", i18n: true }
+          - { label: "Sortierung", name: "sortOrder", widget: "number" }
+          - { label: "Buchen Button", name: "cta", widget: "string", i18n: true }
+
+  - name: "about"
+    label: "Über uns"
+    folder: "src/content/about"
+    create: true
+    i18n: true
+    fields: 
+      - { label: "Titel", name: "title", widget: string, i18n: true }
+      - { label: "Name", name: "name", widget: string, i18n: duplicate }
+      - { label: "Rolle", name: "role", widget: string, i18n: true }
+      - { label: "Über uns Text", name: "aboutText", widget: markdown, i18n: true }
+      - { label: "Bild", name: "image", widget: image, i18n: duplicate }
