@@ -1,9 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
-import { getLangFromUrl } from "../../i18n/utils";
-import arrowDown from "../../assets/images/arrow-down.svg";
+import { getLangFromUrl } from "../i18n/utils";
+import arrowDown from "../assets/images/arrow-down.svg";
 import { Image } from "astro:assets";
-const processes = await Astro.glob("../../content/process/process.md");
+const processes = await Astro.glob("../content/process/process.md");
 
 const lang = getLangFromUrl(Astro.url);
 const filteredProcesses = processes[0]?.frontmatter[lang];

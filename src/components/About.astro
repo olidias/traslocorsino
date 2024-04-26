@@ -1,9 +1,9 @@
 ---
-import { getLangFromUrl } from "../../i18n/utils";
-import aboutImage from "../../assets/images/about.png"
+import { getLangFromUrl } from "../i18n/utils";
+import aboutImage from "../assets/images/about.png"
 import { Image } from "astro:assets";
 
-const aboutRaw = await Astro.glob('../../content/about/about.md');
+const aboutRaw = await Astro.glob('../content/about/about.md');
 
 const lang = getLangFromUrl(Astro.url);
 

@@ -1,8 +1,8 @@
 ---
-import { getLangFromUrl } from "../../i18n/utils";
+import { getLangFromUrl } from "../i18n/utils";
 import Feature from "./Feature.astro";
 
-const features = await Astro.glob('../../content/feature/feature*.md');
+const features = await Astro.glob('../content/feature/feature*.md');
 
 const lang = getLangFromUrl(Astro.url);
 
