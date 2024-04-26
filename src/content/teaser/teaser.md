@@ -1,6 +1,6 @@
 ---
 de:
-  teaser: Dein unkomplizierter Partner für stressfreie Transporter-Mieteneb
+  teaser: Dein unkomplizierter Partner für stressfreie Transporter-Mieten
   ctaText: Jetzt Wagen buchen
   logo: src/assets/images/group.png
 en:
