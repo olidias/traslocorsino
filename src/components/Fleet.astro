@@ -24,7 +24,7 @@ translatedFleet.vans = translatedFleet.vans.map((v: any) => {
 });
 ---
 
-<div class="flex mx-auto sm:w-2/3 w-full flex-col mt-20 mb-10">
+<div class="flex mx-auto md:w-5/6 w-full flex-col mt-20 mb-10">
     <h2 class="text-2xl font-bold flex mx-auto mb-10">
         {translatedFleet.title}
     </h2>
@@ -33,11 +33,11 @@ translatedFleet.vans = translatedFleet.vans.map((v: any) => {
             translatedFleet &&
                 translatedFleet.vans.map((v: any) => {
                     return (
-                        <div class="flex bg-primary-light md:flex-row flex-col">
+                        <div class="flex bg-primary-light md:flex-row flex-col items-center">
                             <Image
                                 src={v.loadedImage()}
                                 alt={v}
-                                class={"h-full max-h-[400px] "}
+                                class={" max-w-[350px] min-w-[250px]"}
                             />
                             <div class="flex flex-col p-6 w-full">
                                 <h3 class="capitalize font-bold mb-2">{v.title}</h3>

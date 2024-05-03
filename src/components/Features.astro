@@ -8,7 +8,7 @@ const lang = getLangFromUrl(Astro.url);
 
 const filteredFeatures = features.map(f => f.frontmatter[lang]).sort((a,b) => a.sortOrder - b.sortOrder);
 ---
-<div class="flex mx-auto sm:w-2/3 w-full flex-col sm:flex-row mt-20">
+<div class="flex mx-auto md:w-5/6 w-full flex-col sm:flex-row mt-20">
     {filteredFeatures && filteredFeatures.map((f, i) => (
       <Feature title={f.title} description={f.description} icon={f.icon} index={i} />  
     ))}
