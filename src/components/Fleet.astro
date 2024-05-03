@@ -45,13 +45,14 @@ translatedFleet.vans = translatedFleet.vans.map((v: any) => {
                                 })}
                                 <div class="flex flex-row items-center mt-auto w-full">
                                     <span class="font-bold flex">{v.price}</span>
-                                    <a
+                                    
+                                </div>
+                                <a
                                         href={getRelativeLocaleUrl(lang,'book')}
-                                        class="bg-white px-7 py-2 border-2 border-primary-darker justify-end rounded-sm ml-auto flex"
+                                        class="bg-white px-10 py-2 border-2 border-primary-darker justify-end rounded-sm ml-auto flex hover:scale-105 hover:bg-primary-dark hover:text-primary-lightest transition duration-200"
                                     >
                                         {v.cta}
                                     </a>
-                                </div>
                             </div>
                         </div>
                     );
