@@ -5,7 +5,7 @@ de:
     - title: Toyota Proace
       image: /src/assets/images/toyota-hiace.jpg
       data: |-
-        Laderaum:\
+        Laderaum:
         Länge: 2.50m
         Breite: 1.60m
         Höhe: 1.40m
