@@ -2,31 +2,31 @@
 de:
   title: Unsere Flotte
   vans:
-    - title: Toyota Hiace
+    - title: Toyota Proace
       image: /src/assets/images/toyota-hiace.jpg
       data: |-
-        Baujahr: 2020
-        Länge: 4.5m
-        Breite: 1.8m
-        Höhe: 2m
+        Laderaum:\
+        Länge: 2.50m
+        Breite: 1.60m
+        Höhe: 1.40m
 
         Automatikgetriebe
-      price: 120.-/h
+      price: 25.-/h
       cta: Buchen
       sortOrder: 1
 en:
   title: Our Fleet
   vans:
-    - title: Toyota Hiace
+    - title: Toyota Proace
       image: /src/assets/images/toyota-hiace.jpg
       data: |-
-        2020 model
-        Length: 4.5m
-        Width: 1.8m
-        Height: 2m
+        Storage space:
+        Length: 2.50m
+        Width: 1.60m
+        Height: 1.40m
 
         Automatic Transmission
-      price: 120.-/h
+      price: 25.-/h
       sortOrder: 1
       cta: Book
 ---
