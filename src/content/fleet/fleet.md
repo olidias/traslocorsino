@@ -10,7 +10,9 @@ de:
         Breite: 1.60m
         Höhe: 1.40m
 
-        Automatikgetriebe
+        Schaltgetriebe
+
+        2 Spannset vorhanden
       price: 25.-/h
       cta: Buchen
       sortOrder: 1
@@ -25,7 +27,9 @@ en:
         Width: 1.60m
         Height: 1.40m
 
-        Automatic Transmission
+        Manual Transmission
+
+        2 clamping sets available
       price: 25.-/h
       sortOrder: 1
       cta: Book
