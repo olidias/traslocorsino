@@ -9,7 +9,7 @@ const lang = getLangFromUrl(Astro.url);
 const filteredProcesses = processes[0]?.frontmatter[lang];
 ---
 
-<div class="flex mx-auto md:w-5/6 w-full flex-col mt-20">
+<div class="flex mx-auto md:w-5/6 w-11/12 sm:w-10/12 flex-col mt-20">
     <h2 class="text-2xl font-bold flex mx-auto mb-10">
         {filteredProcesses.title}
     </h2>
