@@ -6,9 +6,9 @@ import { getRelativeLocaleUrl } from "astro:i18n";
 const lang = getLangFromUrl(Astro.url);
 const teaser = teasers.frontmatter[lang];
 ---
-<div class="absolute w-[100vw] left-0 -top-32 -z-10 max-w-full">
-    <div class="w-full absolute max-w-full right-0">
-    <img src="/hero-ellipse-1.svg" class="opacity-60 rotate-12" aria-label="background ellipse 1" />
+<div class="absolute max-w-[100vw] w-full left-0 -z-10 min-h-[200px]">
+    <div class="absolute ">
+    <img src="/hero-ellipse-1.svg" class="w-[100vw] opacity-60" aria-label="background ellipse 1" />
 </div>
     <img src="/hero-ellipse-2.svg" class="w-full absolute opacity-60 " aria-label="background ellipse 2" />
 </div>
