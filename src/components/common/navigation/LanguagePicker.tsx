@@ -40,7 +40,7 @@ export default function LanguagePicker({ url }: { url: URL }) {
   });
 
   return (
-    <div className=" inline-block text-left" ref={ref}>
+    <div className="inline-block text-left m-1" ref={ref}>
       <div>
         <button
           type="button"
