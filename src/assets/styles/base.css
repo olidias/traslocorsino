@@ -13,3 +13,9 @@
 [data-aw-toggle-menu].expanded g > path:last-child {
   @apply rotate-45 translate-y-[-8px] translate-x-[14px];
 }
+
+@layer base {
+  html {
+    font-family: "Montserrat", system-ui, sans-serif;
+  }
+}

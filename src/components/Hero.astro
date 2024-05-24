@@ -1,17 +1,23 @@
 ---
 import { getLangFromUrl } from "../i18n/utils";
 import * as teasers from "../content/teaser/teaser.md";
+import { getRelativeLocaleUrl } from "astro:i18n";
 
 const lang = getLangFromUrl(Astro.url);
 const teaser = teasers.frontmatter[lang];
 ---
-
-<div class="flex flex-col w-2/3 mx-auto mt-10  items-center">
+<div class="absolute w-[100vw] left-0 -top-32 -z-10 max-w-full">
+    <div class="w-full absolute max-w-full right-0">
+    <img src="/hero-ellipse-1.svg" class="opacity-60 rotate-12" aria-label="background ellipse 1" />
+</div>
+    <img src="/hero-ellipse-2.svg" class="w-full absolute opacity-60 " aria-label="background ellipse 2" />
+</div>
+<div class="flex flex-col w-2/3 mx-auto mt-10 items-center">
     <img
         class="max-w-[685px]"
         src="/traslocorsino.svg"
         alt="traslocorsino logo"
     />
     <p class="italic">{teaser.teaser}</p>
-    <a href=`${lang}/book` class="bg-white px-7 py-2 border-2 border-primary-darker rounded-sm mt-3 ">{teaser.ctaText}</a>
+    <a href={getRelativeLocaleUrl(lang,'book')} class="bg-white px-7 py-2 border-2 border-primary-darker rounded-sm mt-3 hover:scale-105 hover:bg-primary-dark hover:text-primary-lightest transition duration-200 ">{teaser.ctaText}</a>
 </div>
