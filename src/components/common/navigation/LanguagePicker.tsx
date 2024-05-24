@@ -70,7 +70,7 @@ export default function LanguagePicker({ url }: { url: URL }) {
                 className="text-gray-700 px-4 py-2 text-sm flex justify-items-start hover:bg-gray-100"
                 role="menuitem"
                 tabIndex={-1}
-                id={`menu-item-${i}`}
+                id={`menu-item-${i}-${language.key}`}
               >
                 <div className="flex-col flex w-5 h-5 items-center justify-center">
                   <Icon icon={language?.icon} className="flex mr-2" />

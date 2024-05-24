@@ -16,6 +16,7 @@ const { textDirection = 'ltr' } = SITE;
 <html lang={meta.language ? meta.language : SITE.language} dir={textDirection} class="2xl:text-[20px]">
   <head>
     <meta name="generator" content={Astro.generator} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <MetaTags {...meta} />
   </head>
 

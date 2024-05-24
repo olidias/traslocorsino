@@ -43,7 +43,7 @@ export default function ToggleMenu({ links, url }: { links: Link[]; url: URL }) 
         <>
             <div ref={ref} className="mr-2">
                 <div className="flex flex-col items-center">
-                    <button onClick={toggleMenu}>
+                    <button onClick={toggleMenu} aria-label="dropdown menu">
                         <Icon icon="material-symbols:menu-rounded" height={30} width={30} className={`text-white fixed transition duration-150 ${menuOpen ? 'scale-0' : 'scale-100'}`} key={'icon-open'} />
                         <Icon icon="material-symbols:close-rounded" height={30} width={30} className={`text-white transition duration-150 ${menuOpen ? 'scale-100' : 'scale-0'}`} key={'icon-close'} />
                     </button>
