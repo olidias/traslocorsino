@@ -49,7 +49,7 @@ export default function ToggleMenu({ links, url }: { links: Link[]; url: URL }) 
                     </button>
                 </div>
                 {isComponentVisible &&
-                    <div className={`absolute w-[100vw] top-[48px] left-0 bg-primary text-white ${menuOpen ? 'visible' : 'hidden'}`}>
+                    <div className={`absolute w-[100vw] top-[64px] left-0 bg-primary text-white ${menuOpen ? 'visible' : 'hidden'}`}>
                         {links.map((l: Link) => (
                             <a href={l.href} className='text-lg p-5 flex flex-col hover:bg-primary-dark ml-5 transition duration-500' key={l.key}>
                                 {t(l.languageKey)}
