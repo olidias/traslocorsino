@@ -4,7 +4,7 @@ import { defaultLang, languages } from "../../../i18n/ui";
 import { getLangFromUrl } from "../../../i18n/utils";
 import { getRelativeLocaleUrl } from "astro:i18n";
 
-export default function LanguagePicker({ url }: {url: URL}) {
+export default function LanguagePicker({ url }: { url: URL }) {
   const [menuOpen, setMenuOpen] = useState(false);
   function toggleMenu() {
     setIsComponentVisible(true);
@@ -40,7 +40,7 @@ export default function LanguagePicker({ url }: {url: URL}) {
   });
 
   return (
-    <div className="relative inline-block text-left" ref={ref}>
+    <div className=" inline-block text-left" ref={ref}>
       <div>
         <button
           type="button"
@@ -56,9 +56,8 @@ export default function LanguagePicker({ url }: {url: URL}) {
       </div>
       {isComponentVisible && (
         <div
-          className={`${
-            menuOpen ? "" : "hidden"
-          } absolute right-0 z-10 mt-2 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+          className={`${menuOpen ? "visible" : "hidden"
+            } absolute z-10 right-0 z-10 mt-2 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
           role="menu"
           aria-orientation="vertical"
           tabIndex={-1}

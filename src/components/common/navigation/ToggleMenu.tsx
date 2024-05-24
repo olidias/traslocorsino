@@ -17,7 +17,6 @@ export default function ToggleMenu({ links, url }: { links: Link[]; url: URL }) 
 
     useEffect(() => {
         function handleClick(e: MouseEvent) {
-            if (closeIconRef.current && closeIconRef.current.contains(e.target)) e.bubbles = true;
             if (menuRef.current && !menuRef.current.contains(e.target)) {
                 setMenuOpen(false);
             }
