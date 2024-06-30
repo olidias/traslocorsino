@@ -1,0 +1,89 @@
+---
+import { getLangFromUrl } from "../../i18n/utils.ts";
+import type { ImageMetadata } from "astro";
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { FleetGallery } from "./FleetGallery.tsx";
+import Image from "astro/components/Image.astro";
+import { GallerySlide } from "./GallerySlide";
+import { GalleryItem } from "./GalleryItem";
+
+const fleet = await Astro.glob("../../content/fleet/*.md");
+const allVans = fleet.map((f) => f.frontmatter);
+const lang = getLangFromUrl(Astro.url);
+
+const translatedFleet = allVans[0]![lang];
+translatedFleet.vans = translatedFleet.vans.sort(
+    (a: any, b: any) => a.sortOrder - b.sortOrder,
+);
+const images = import.meta.glob<{ default: ImageMetadata }>(
+    "/src/assets/images/*.{jpeg,jpg,png,gif}",
+);
+
+translatedFleet.vans = translatedFleet.vans.map((v: any) => {
+    if (!images[v.image])
+        throw new Error(
+            `"${v.image}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif}"`,
+        );
+    return {
+        ...v,
+        loadedImages: images,
+        separatedData: v.data.split(/\r?\n|\r|\n/g),
+    };
+});
+console.log(translatedFleet.vans.length)
+---
+
+<div class="flex mx-auto md:w-5/6 w-full flex-col mt-20 mb-10" id="fleet">
+    <h2 class="text-2xl font-bold flex mx-auto mb-10">
+        {translatedFleet.title}
+    </h2>
+    <div>
+        {
+            translatedFleet &&
+                translatedFleet.vans.map((v: any) => {
+                    return (
+                        <div class="flex bg-primary-light md:flex-row flex-col items-center">
+                            <FleetGallery client:visible>
+                                {v.images.map((image: string, index: number) => (
+                                    // <GalleryItem key={index}>
+                                    //     <Image
+                                    //         src={v.loadedImages[`/${image}`]()} // Important leading slash, otherwise no match
+                                    //         alt="tes"
+                                    //     />
+                                    // </GalleryItem>
+                                    <GalleryItem keyCount={index}>
+                                        <img
+                                                slot={`image${index}`}
+                                                src={`/${image}`} // Important leading slash, otherwise no match
+                                                alt="tes"
+                                                width="345"
+                                                height="35"
+                                            />
+                                    </GalleryItem>
+                                ))}
+                            </FleetGallery>
+                            <div class="flex flex-col p-6 w-full">
+                                <h3 class="capitalize font-bold mb-2">
+                                    {v.title}
+                                </h3>
+                                {v.separatedData.map((d: string) => {
+                                    return <p>{d}</p>;
+                                })}
+                                <div class="flex flex-row items-center mt-auto w-full">
+                                    <span class="font-bold flex">
+                                        {v.price}
+                                    </span>
+                                </div>
+                                <a
+                                    href={getRelativeLocaleUrl(lang, "book")}
+                                    class="bg-white px-10 py-2 border-2 border-primary-darker justify-end rounded-sm ml-auto flex hover:scale-105 hover:bg-primary-dark hover:text-primary-lightest transition duration-200"
+                                >
+                                    {v.cta}
+                                </a>
+                            </div>
+                        </div>
+                    );
+                })
+        }
+    </div>
+</div>

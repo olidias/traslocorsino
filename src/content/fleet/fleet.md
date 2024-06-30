@@ -16,6 +16,11 @@ de:
       price: 25.-/h
       cta: Buchen
       sortOrder: 1
+      images:
+        - src/assets/images/toyota-hiace.jpg
+        - src/assets/images/1037729d-03b4-449b-9a8b-5a376806a107.jpg
+        - src/assets/images/fe7e8047-06d0-47da-98be-426e480734f6.jpg
+        - src/assets/images/71127c26-515d-47e6-af4f-f4d56d582d8b.jpg
 en:
   title: Our Fleet
   vans:
