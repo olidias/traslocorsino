@@ -1,10 +1,12 @@
 ---
-import Layout from '../../layouts/PageLayout.astro';
-import Hero from '../../components/Hero.astro';
-import AboutPage from '../../components/About.astro';
-
+import Layout from "../../layouts/PageLayout.astro";
+import Hero from "../../components/Hero.astro";
+import AboutPage from "../../components/About.astro";
 ---
+
 <Layout>
-    <Hero />
-    <AboutPage />
+    <div class="mx-auto md:w-full lg:w-2/3 flex flex-col">
+        <Hero />
+        <AboutPage />
+    </div>
 </Layout>
