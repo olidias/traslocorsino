@@ -1,13 +1,12 @@
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 
-export function FleetGallery(props) {
+export function FleetGallery(props: { images: string[]; }) {
   const buttonStyle = {
     width: "30px",
     background: 'none',
     border: '0px'
   };
-  console.log(props.images);
 
   const properties = {
     duration: 0,
