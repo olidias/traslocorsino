@@ -25,6 +25,7 @@ de:
         - /assets/fleet/1037729d-03b4-449b-9a8b-5a376806a107.jpg
         - /assets/fleet/ff9b6f62-9c0c-474e-8a71-6275f774e995.jpg
         - /assets/fleet/fe7e8047-06d0-47da-98be-426e480734f6.png
+        - /public/aaaaa_van_0-518430301.png
 en:
   title: Our Fleet
   vans:
