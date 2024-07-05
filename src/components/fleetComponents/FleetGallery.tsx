@@ -7,6 +7,7 @@ export function FleetGallery(props) {
     background: 'none',
     border: '0px'
   };
+  console.log(props.images);
 
   const properties = {
     duration: 0,
@@ -19,11 +20,12 @@ export function FleetGallery(props) {
     </svg></button>
 
   }
-  console.log(props)
   return (
-    <div className="md:w-1/4 w-full h-full max-w-[350px] min-w-[250px] slide-container" >
+    <div className="md:w-2/5 w-full h-full slide-container" >
       <Slide {...properties}>
-       {props.children}
+        {props.images.map((image: string, index: number) => {
+          return (<img src={image} alt={`fleet-gallery-image-${index}`} key={index} />)
+        })}
       </Slide>
     </div>
   );

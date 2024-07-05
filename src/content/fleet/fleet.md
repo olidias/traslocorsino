@@ -3,7 +3,7 @@ de:
   title: Unsere Flotte
   vans:
     - title: Toyota Proace
-      image: /src/assets/images/toyota-hiace.jpg
+      image: /public/assets/fleet/toyota-proace.jpg
       data: |-
         Laderaum:
         Länge: 2.50m
@@ -17,15 +17,15 @@ de:
       cta: Buchen
       sortOrder: 1
       images:
-        - src/assets/images/toyota-hiace.jpg
-        - src/assets/images/1037729d-03b4-449b-9a8b-5a376806a107.jpg
-        - src/assets/images/fe7e8047-06d0-47da-98be-426e480734f6.jpg
-        - src/assets/images/71127c26-515d-47e6-af4f-f4d56d582d8b.jpg
+        - assets/fleet/toyota-proace.jpg
+        - assets/fleet/1037729d-03b4-449b-9a8b-5a376806a107.jpg
+        - assets/fleet/fe7e8047-06d0-47da-98be-426e480734f6.png
+        - assets/fleet/71127c26-515d-47e6-af4f-f4d56d582d8b.jpg
 en:
   title: Our Fleet
   vans:
     - title: Toyota Proace
-      image: /src/assets/images/toyota-hiace.jpg
+      image: assets/fleet/toyota-proace.jpg
       data: |-
         Storage space:
         Length: 2.50m

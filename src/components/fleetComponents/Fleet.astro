@@ -16,13 +16,13 @@ translatedFleet.vans = translatedFleet.vans.sort(
     (a: any, b: any) => a.sortOrder - b.sortOrder,
 );
 const images = import.meta.glob<{ default: ImageMetadata }>(
-    "/src/assets/images/*.{jpeg,jpg,png,gif}",
+    "/public/assets/fleet/*.{jpeg,jpg,png,gif}",
 );
 
 translatedFleet.vans = translatedFleet.vans.map((v: any) => {
     if (!images[v.image])
         throw new Error(
-            `"${v.image}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif}"`,
+            `"${v.image}" does not exist in glob: "/assets/fleet/*.{jpeg,jpg,png,gif}"`,
         );
     return {
         ...v,
@@ -30,7 +30,7 @@ translatedFleet.vans = translatedFleet.vans.map((v: any) => {
         separatedData: v.data.split(/\r?\n|\r|\n/g),
     };
 });
-console.log(translatedFleet.vans.length)
+const params = translatedFleet.vans[0].images.map((image, index) => {return `/${image}`});
 ---
 
 <div class="flex mx-auto md:w-5/6 w-full flex-col mt-20 mb-10" id="fleet">
@@ -43,24 +43,8 @@ console.log(translatedFleet.vans.length)
                 translatedFleet.vans.map((v: any) => {
                     return (
                         <div class="flex bg-primary-light md:flex-row flex-col items-center">
-                            <FleetGallery client:visible>
-                                {v.images.map((image: string, index: number) => (
-                                    // <GalleryItem key={index}>
-                                    //     <Image
-                                    //         src={v.loadedImages[`/${image}`]()} // Important leading slash, otherwise no match
-                                    //         alt="tes"
-                                    //     />
-                                    // </GalleryItem>
-                                    <GalleryItem keyCount={index}>
-                                        <img
-                                                slot={`image${index}`}
-                                                src={`/${image}`} // Important leading slash, otherwise no match
-                                                alt="tes"
-                                                width="345"
-                                                height="35"
-                                            />
-                                    </GalleryItem>
-                                ))}
+                            <FleetGallery images={params} client:visible>
+                               
                             </FleetGallery>
                             <div class="flex flex-col p-6 w-full">
                                 <h3 class="capitalize font-bold mb-2">
