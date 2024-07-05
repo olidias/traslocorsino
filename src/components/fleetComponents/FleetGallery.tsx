@@ -1,7 +1,7 @@
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 
-export function FleetGallery(props: { images: string[]; }) {
+export function FleetGallery(props: any) {
   const buttonStyle = {
     width: "30px",
     background: 'none',
@@ -22,7 +22,7 @@ export function FleetGallery(props: { images: string[]; }) {
   return (
     <div className="md:w-2/5 w-full slide-container" >
       <Slide {...properties}>
-        {props.images.map((image: string, index: number) => {
+        {props.images?.map((image: string, index: number) => {
           return (<img src={image} alt={`fleet-gallery-image-${index}`} key={index} />)
         })}
       </Slide>
