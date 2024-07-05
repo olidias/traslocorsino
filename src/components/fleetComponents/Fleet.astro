@@ -40,7 +40,7 @@ const params = translatedFleet.vans[0].images.map((image, index) => {return `/${
                 translatedFleet.vans.map((v: any) => {
                     return (
                         <div class="flex bg-primary-light md:flex-row flex-col items-center">
-                            <FleetGallery images={params} client:visible>
+                            <FleetGallery images={params} client:visible class="h-full">
                                
                             </FleetGallery>
                             <div class="flex flex-col p-6 w-full">

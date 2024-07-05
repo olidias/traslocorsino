@@ -21,7 +21,7 @@ export function FleetGallery(props) {
 
   }
   return (
-    <div className="md:w-2/5 w-full h-full slide-container" >
+    <div className="md:w-2/5 w-full slide-container" >
       <Slide {...properties}>
         {props.images.map((image: string, index: number) => {
           return (<img src={image} alt={`fleet-gallery-image-${index}`} key={index} />)
