@@ -27,7 +27,7 @@ translatedFleet.vans = translatedFleet.vans.map((v: any) => {
         separatedData: v.data.split(/\r?\n|\r|\n/g),
     };
 });
-const params = translatedFleet.vans[0].images.map((image, index) => {return `/${image}`});
+const params = translatedFleet.vans[0].images.map((image: string) => {return `/${image}`});
 ---
 
 <div class="flex mx-auto md:w-5/6 w-full flex-col mt-20 mb-10" id="fleet">
@@ -40,7 +40,7 @@ const params = translatedFleet.vans[0].images.map((image, index) => {return `/${
                 translatedFleet.vans.map((v: any) => {
                     return (
                         <div class="flex bg-primary-light md:flex-row flex-col items-center">
-                            <FleetGallery images={params} client:visible class="h-full">
+                            <FleetGallery images={params} client:visible>
                                
                             </FleetGallery>
                             <div class="flex flex-col p-6 w-full">
