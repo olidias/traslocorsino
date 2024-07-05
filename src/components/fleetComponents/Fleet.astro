@@ -3,9 +3,6 @@ import { getLangFromUrl } from "../../i18n/utils.ts";
 import type { ImageMetadata } from "astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { FleetGallery } from "./FleetGallery.tsx";
-import Image from "astro/components/Image.astro";
-import { GallerySlide } from "./GallerySlide";
-import { GalleryItem } from "./GalleryItem";
 
 const fleet = await Astro.glob("../../content/fleet/*.md");
 const allVans = fleet.map((f) => f.frontmatter);
@@ -22,7 +19,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 translatedFleet.vans = translatedFleet.vans.map((v: any) => {
     if (!images[v.image])
         throw new Error(
-            `"${v.image}" does not exist in glob: "/assets/fleet/*.{jpeg,jpg,png,gif}"`,
+            `"${v.image}" does not exist in glob: "/public/assets/fleet/*.{jpeg,jpg,png,gif}"`,
         );
     return {
         ...v,
