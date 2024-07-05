@@ -73,7 +73,11 @@ collections:
         i18n: true
         fields:
           - { label: "Title", name: "title", widget: "string", i18n: duplicate }
-          - { label: "Bild", name: "image", widget: "image", i18n: duplicate }
+          - label: Bilder
+            name: images
+            folder: "/public/assets/fleet/"
+            widget: list
+            field: { label: "Bild", name: "image", widget: "image", i18n: duplicate }
           - { label: "Daten", name: "data", widget: "markdown", i18n: true }
           - { label: "Preis", name: "price", widget: "string", i18n: true }
           - { label: "Sortierung", name: "sortOrder", widget: "number" }

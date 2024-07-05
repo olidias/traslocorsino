@@ -57,7 +57,7 @@ export default function LanguagePicker({ url }: { url: URL }) {
       {isComponentVisible && (
         <div
           className={`${menuOpen ? "visible" : "hidden"
-            } absolute z-10 right-0 z-10 mt-2 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
+            } absolute z-10 md:right-auto right-0  mt-2 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none`}
           role="menu"
           aria-orientation="vertical"
           tabIndex={-1}
