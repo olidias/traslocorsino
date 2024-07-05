@@ -76,7 +76,7 @@ collections:
           - label: Bilder
             name: images
             widget: list
-            field: { label: "Bild", name: "image", widget: "image", i18n: duplicate, media_folder: "/assets/fleet/", public_folder: "/" }
+            field: { label: "Bild", name: "image", widget: "image", i18n: duplicate, media_folder: "/assets/fleet/", public_folder: "/public" }
           - { label: "Daten", name: "data", widget: "markdown", i18n: true }
           - { label: "Preis", name: "price", widget: "string", i18n: true }
           - { label: "Sortierung", name: "sortOrder", widget: "number" }
